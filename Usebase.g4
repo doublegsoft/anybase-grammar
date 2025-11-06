@@ -122,6 +122,7 @@ usebase_argument
   :   anybase_identifier ('=' value=anybase_value)? usebase_validation?
   |   usebase_aggregate
   |   usebase_sysobj
+  |   anybase_value
   ;  
 
 usebase_arguments

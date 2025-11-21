@@ -188,7 +188,7 @@ usebase_source
   ;
 
 usebase_invoke
-  :   '@' anybase_identifier '(' usebase_arguments ')'
+  :   '@' anybase_identifier '(' usebase_arguments ')' (existing='!' msg=anybase_string)?
   ;  
 
 usebase_sysobj

@@ -119,7 +119,7 @@ usebase_validation
   ;  
 
 usebase_argument
-  :   anybase_identifier ('=' value=anybase_value)? usebase_validation?
+  :   anybase_identifier ('as' attr=anybase_id)? ('=' value=anybase_value)? usebase_validation?
   |   usebase_aggregate
   |   usebase_sysobj
   |   anybase_value

@@ -163,7 +163,7 @@ usebase_aggregate
 // :average_player_rating%average[team_player <player> player:rating]%
 //
 usebase_derivative
-  :   ':' name=anybase_id usebase_calculate
+  :   ':' name=anybase_id usebase_calculate?
   ;  
 
 usebase_attribute

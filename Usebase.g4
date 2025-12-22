@@ -169,7 +169,12 @@ usebase_derivative
 usebase_attribute
   :   name=anybase_id ('=' value=anybase_value)? usebase_validation?
   |   usebase_derivative
+  |   usebase_attrgroup
   ;  
+
+usebase_attrgroup
+  :   '(' anybase_id (',' anybase_id)+ ')'
+  ;   
 
 usebase_attributes
   :   usebase_attribute (',' usebase_attribute)*

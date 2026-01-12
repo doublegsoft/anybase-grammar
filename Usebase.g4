@@ -153,6 +153,7 @@ usebase_value
   |   usebase_aggregate
   |   usebase_invoke
   |   usebase_sysobj
+  |   usebase_calculate
   ;  
 
 usebase_aggregate
@@ -167,7 +168,7 @@ usebase_derivative
   ;  
 
 usebase_attribute
-  :   name=anybase_id ('=' value=anybase_value)? usebase_validation?
+  :   name=anybase_id ('=' value=usebase_value)? usebase_validation?
   |   usebase_derivative
   |   usebase_attrgroup
   ;  
@@ -209,5 +210,18 @@ usebase_conditions
   ;  
 
 usebase_calculate
-  :   '%' name=anybase_id usebase_array ('(' groups=usebase_arguments ')')? '%'
+  :   '%' ((name=anybase_id usebase_array) | usebase_calc_expr) ('(' groups=usebase_arguments ')')? '%'
+  ;  
+
+usebase_calc_expr
+  :   usebase_calc_expr ('*'|'/') usebase_calc_expr
+  |   usebase_calc_expr ('+'|'-') usebase_calc_expr 
+  |   usebase_calc_value                                             
+  |   '(' usebase_calc_expr ')'
+  ;  
+
+usebase_calc_value
+  :   usebase_object 
+  |   anybase_value
+  |   anybase_id 
   ;  

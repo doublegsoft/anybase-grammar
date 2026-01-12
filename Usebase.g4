@@ -214,8 +214,8 @@ usebase_calculate
   ;  
 
 usebase_calc_expr
-  :   usebase_calc_expr ('*'|'/') usebase_calc_expr
-  |   usebase_calc_expr ('+'|'-') usebase_calc_expr 
+  :   left=usebase_calc_expr ('*'|'/') right=usebase_calc_expr
+  |   left=usebase_calc_expr ('+'|'-') right=usebase_calc_expr 
   |   usebase_calc_value                                             
   |   '(' usebase_calc_expr ')'
   ;  

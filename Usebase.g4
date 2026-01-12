@@ -223,5 +223,4 @@ usebase_calc_expr
 usebase_calc_value
   :   usebase_object 
   |   anybase_value
-  |   anybase_id 
   ;  

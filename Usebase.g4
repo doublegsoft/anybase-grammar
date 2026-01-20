@@ -137,7 +137,7 @@ usebase_object
 
 usebase_array
   :   alias=anybase_id? '[' (usebase_aggregate | name=anybase_id) ']' 
-      (usebase_source | usebase_invoke | (usebase_operator_hash '(' usebase_arguments ')'))?
+      (usebase_source | usebase_invoke | (usebase_operator_hash '(' usebase_arguments ')' (existing='!' msg=anybase_string)?))?
   ;
 
 usebase_data

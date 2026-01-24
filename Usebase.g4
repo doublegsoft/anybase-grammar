@@ -168,7 +168,7 @@ usebase_derivative
   ;  
 
 usebase_attribute
-  :   (alias=anybase_id '#')? name=anybase_id ('=' value=usebase_value)? usebase_validation?
+  :   name=anybase_id ('#' alias=anybase_id)? ('=' value=usebase_value)? usebase_validation?
   |   usebase_derivative
   |   usebase_attrgroup
   ;  

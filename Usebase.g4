@@ -9,6 +9,7 @@ USEBASE_SYMBOL_FIND:                '&|';
 USEBASE_SYMBOL_UPDATE:              '=|';
 USEBASE_SYMBOL_SAVE:                '+|';
 USEBASE_SYMBOL_ASSIGN:              ':|';
+USEBASE_SYMBOL_HASHASSIGN:          '#|';
 USEBASE_SYMBOL_DELETE:              '-|';
 USEBASE_SYMBOL_CALL:                '@|';
 USEBASE_SYMBOL_CASE:                '?|';
@@ -50,6 +51,7 @@ usebase_operator_part
   :   USEBASE_SYMBOL_CHECK
   |   USEBASE_SYMBOL_FIND
   |   USEBASE_SYMBOL_ASSIGN
+  |   USEBASE_SYMBOL_HASHASSIGN
   |   USEBASE_SYMBOL_SAVE
   |   USEBASE_SYMBOL_UPDATE
   |   USEBASE_SYMBOL_DELETE
@@ -137,7 +139,8 @@ usebase_object
 
 usebase_array
   :   alias=anybase_id? '[' (usebase_aggregate | name=anybase_id) ']' 
-      (usebase_source | usebase_invoke | (usebase_operator_hash '(' usebase_arguments ')' (existing='!' msg=anybase_string)?))?
+      (usebase_source | usebase_invoke | (usebase_operator_hash '(' usebase_arguments ')' 
+      (existing='!' msg=anybase_string)?))?
   ;
 
 usebase_data

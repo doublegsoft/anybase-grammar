@@ -143,9 +143,16 @@ usebase_array
       (existing='!' msg=anybase_string)?))?
   ;
 
+usebase_graph 
+  :   alias=anybase_id? '<' vertex=anybase_id ',' edge=anybase_id '>' 
+      (usebase_source | usebase_invoke | (usebase_operator_hash '(' usebase_arguments ')' 
+      (existing='!' msg=anybase_string)?))?
+  ;  
+
 usebase_data
   :   usebase_object
   |   usebase_array
+  |   usebase_graph
   |   usebase_derivative
   ;
 
@@ -154,6 +161,7 @@ usebase_value
   |   anybase_value
   |   anybase_identifier
   |   usebase_aggregate
+  |   usebase_graph
   |   usebase_invoke
   |   usebase_sysobj
   |   usebase_calculate

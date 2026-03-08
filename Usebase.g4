@@ -202,15 +202,15 @@ usebase_return
   ;  
 
 usebase_source
-  :   '&' anybase_identifier
+  :   '&' var=anybase_identifier
   ;
 
 usebase_invoke
-  :   '@' anybase_identifier '(' usebase_arguments ')' (existing='!' msg=anybase_string)?
+  :   '@' name=anybase_identifier '(' usebase_arguments ')' (existing='!' msg=anybase_string)?
   ;  
 
 usebase_sysobj
-  :   '#' anybase_identifier
+  :   '#' name=anybase_identifier
   ;    
 
 usebase_condition

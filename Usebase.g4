@@ -202,7 +202,7 @@ usebase_return
   ;  
 
 usebase_source
-  :   '&' var=anybase_identifier
+  :   '&' var=anybase_id ('<' usebase_condition '>' anybase_id)*
   ;
 
 usebase_invoke

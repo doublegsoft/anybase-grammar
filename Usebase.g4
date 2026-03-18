@@ -4,17 +4,17 @@ import Anybase, Typebase;
 
 
 USEBASE_SYMBOL_START:               '|';
-USEBASE_SYMBOL_CHECK:               '~|';
-USEBASE_SYMBOL_FIND:                '&|';
+USEBASE_SYMBOL_SEARCH:              '&|'; // UNUSED
 USEBASE_SYMBOL_UPDATE:              '=|';
 USEBASE_SYMBOL_SAVE:                '+|';
 USEBASE_SYMBOL_ASSIGN:              ':|';
-USEBASE_SYMBOL_HASHASSIGN:          '#|';
+USEBASE_SYMBOL_FILTER:              '#|'; // UNUSED  
 USEBASE_SYMBOL_DELETE:              '-|';
-USEBASE_SYMBOL_CALL:                '@|';
+USEBASE_SYMBOL_CALL:                '@|'; // UNUSED
 USEBASE_SYMBOL_CASE:                '?|';
 USEBASE_SYMBOL_LOOP:                '*|';
 USEBASE_SYMBOL_RETURN:              '.|';
+USEBASE_SYMBOL_EMIT:                '~|';
 
 USEBASE_SYMBOL_GT:                  '>';
 USEBASE_SYMBOL_FGT:                 '>>';
@@ -48,10 +48,9 @@ usebase_operator_hash
   ;
 
 usebase_operator_part
-  :   USEBASE_SYMBOL_CHECK
-  |   USEBASE_SYMBOL_FIND
+  :   USEBASE_SYMBOL_SEARCH
   |   USEBASE_SYMBOL_ASSIGN
-  |   USEBASE_SYMBOL_HASHASSIGN
+  |   USEBASE_SYMBOL_FILTER
   |   USEBASE_SYMBOL_SAVE
   |   USEBASE_SYMBOL_UPDATE
   |   USEBASE_SYMBOL_DELETE
@@ -59,6 +58,7 @@ usebase_operator_part
   |   USEBASE_SYMBOL_CASE
   |   USEBASE_SYMBOL_LOOP
   |   USEBASE_SYMBOL_RETURN
+  |   USEBASE_SYMBOL_EMIT
   ;
 
 usebase_operator

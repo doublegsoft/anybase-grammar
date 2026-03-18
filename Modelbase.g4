@@ -50,7 +50,7 @@ modelbase_attrs
 modelbase_attr
     :   modelbase_labels? name=modelbase_name (required=modelbase_required | identifiable=modelbase_identifiable)? unique=modelbase_unique?
         ('(' descr=anybase_string ')')? ('=' dflt=anybase_value)? decorator=(TYPEBASE_REQUIRED | '!')? 
-        ('as' alias=modelbase_alias)? ( ':' ( typebase_anytype | ( innerType=modelbase_type innerArray='[]'? ) ) )?
+        ('as' alias=modelbase_alias)? ( ':' ( typebase_anytype | ( innerType=modelbase_type (innerArray='[' counted_attr_name=modelbase_name? ']')? ) ) )?
     ;
     
 modelbase_behavior

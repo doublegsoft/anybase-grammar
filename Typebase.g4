@@ -82,7 +82,7 @@ typebase_bool
 
 // string type
 typebase_string
-  :   ANYBASE_KEYWORD_STRING ('(' length=anybase_int ')')?
+  :   ANYBASE_KEYWORD_STRING ('(' (length=anybase_int | counted_attr_name=anybase_id) ')')?
   ;
 
 // number type

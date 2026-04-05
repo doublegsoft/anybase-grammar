@@ -185,6 +185,14 @@ anybase_keywords
   |   ANYBASE_TYPE_SCHEME
   ;
 
+ANYBASE_ALPHANUM
+  : [a-zA-Z0-9]+
+  ;  
+
+anybase_key
+  :   ANYBASE_ALPHANUM
+  ;  
+
 anybase_symbol_any
   :   ANYBASE_SYMBOL_NUMBER
   |   ANYBASE_SYMBOL_ASCII

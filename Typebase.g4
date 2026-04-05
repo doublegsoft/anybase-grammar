@@ -12,8 +12,9 @@ typebase_attrdecl
   :   typebase_anybase_id TYPEBASE_REQUIRED? ':' (typebase_anytype | typebase_anybase_id)
   ;
 
+// (key1=(ANYBASE_ID | 'D' | 'M' | 'Y' | 'N') | key2=anybase_int)
 typebase_keytext
-  :   (key1=(ANYBASE_ID | 'D' | 'M' | 'Y' | 'N') | key2=anybase_int) ':' text=ANYBASE_ID
+  :  anybase_key  ':' text=ANYBASE_ID ('(' name=anybase_id ')')?
   ;
   
 typebase_keystring

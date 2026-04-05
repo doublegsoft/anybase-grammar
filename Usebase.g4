@@ -201,8 +201,12 @@ usebase_return
   :   ':' usebase_aggregate
   ;  
 
+usebase_source_var
+  :   name=anybase_id ('#' alias=anybase_id)?
+  ;  
+
 usebase_source
-  :   '&' var=anybase_id ('<' usebase_condition '>' anybase_id)*
+  :   '&' var=anybase_id ('<' usebase_condition '>' usebase_source_var)*
   ;
 
 usebase_invoke

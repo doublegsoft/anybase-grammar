@@ -22,6 +22,8 @@ fragment
 ANYBASE_NAMEFIRSTCHAR
   :   'A'..'Z'
   |   'a'..'z'
+  |   '_'
+  |   '$'
   |   '\u00C0'..'\u00D6'
   |   '\u00D8'..'\u00F6'
   |   '\u00F8'..'\u02FF'
@@ -191,6 +193,8 @@ ANYBASE_ALPHANUM
 
 anybase_key
   :   ANYBASE_ALPHANUM
+  |   anybase_id
+  |   anybase_int
   ;  
 
 anybase_symbol_any

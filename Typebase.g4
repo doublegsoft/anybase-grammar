@@ -14,7 +14,7 @@ typebase_attrdecl
 
 // (key1=(ANYBASE_ID | 'D' | 'M' | 'Y' | 'N') | key2=anybase_int)
 typebase_keytext
-  :  anybase_key  ':' text=ANYBASE_ID ('(' name=anybase_id ')')?
+  :  anybase_key  ':' name=ANYBASE_ID ('(' text=anybase_string ')')?
   ;
   
 typebase_keystring

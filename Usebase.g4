@@ -168,8 +168,12 @@ usebase_value
   |   usebase_calculate
   ;  
 
+usebase_conjunction
+  :   '<' usebase_conditions? '>' 
+  ;
+
 usebase_aggregate
-  :   usebase_data ('<' usebase_conditions? '>' usebase_data)*
+  :   usebase_data (usebase_conjunction usebase_data)*
   ;
 
 //

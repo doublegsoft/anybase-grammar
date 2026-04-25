@@ -51,7 +51,7 @@ guidbase_widget_decl
   ;
 
 guidbase_container_decl
-  :    (guidbase_id ':')? guidbase_container guidbase_attrs_decl?  process=GUIDBASE_PROCESS? ('<' guidbase_view* '>')?
+  :    (guidbase_id ':')? guidbase_container guidbase_attrs_decl?  process=GUIDBASE_PROCESS? ('<' guidbase_view (',' guidbase_view)* '>')?
   ;
 
 guidbase_view

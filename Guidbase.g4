@@ -4,6 +4,8 @@ GUIDBASE_WS:                [ \n\t\r]+ -> channel(HIDDEN);
 
 GUIDBASE_COMMENT:           '/*' .*? '*/' -> channel(HIDDEN);
 
+GUIDBASE_COMMENT_LINE:      '//' ~[\r\n]* -> skip;
+
 GUIDBASE_ID:                [a-zA-Z0-9_-]+;
 
 GUIDBASE_QUOTED_STRING:     '"' (~[\r\n"])* '"';
@@ -49,7 +51,7 @@ guidbase_widget_decl
   ;
 
 guidbase_container_decl
-  :    (guidbase_id ':')? guidbase_container guidbase_attrs_decl?  process=GUIDBASE_PROCESS? ('<' guidbase_view (',' guidbase_view)* '>')?
+  :    (guidbase_id ':')? guidbase_container guidbase_attrs_decl?  process=GUIDBASE_PROCESS? ('<' guidbase_view* '>')?
   ;
 
 guidbase_view

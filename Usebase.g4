@@ -89,6 +89,7 @@ usebase_expression
   :   usebase_invoke
   |   usebase_object
   |   usebase_array
+  |   usebase_aggregate
   |   usebase_comparison msg=anybase_string? 
   |   usebase_assignment
   |   item=anybase_id 'in' array=anybase_id
@@ -166,6 +167,7 @@ usebase_value
   |   usebase_invoke
   |   usebase_sysobj
   |   usebase_calculate
+  |   usebase_calc_expr
   ;  
 
 usebase_conjunction

@@ -114,6 +114,27 @@ usebase_comparison
   :   usebase_comparison_part (usebase_comparison_conj usebase_comparison_part)*  (otherwise='!' msg=anybase_string)?
   ;  
 
+// usebase_comparison
+//   : usebase_comparison_expr (otherwise='!' msg=anybase_string)?
+//   ;
+
+// usebase_comparison_expr
+//   : usebase_comparison_and_expr ( 'or' usebase_comparison_and_expr )*
+//   ;
+
+// usebase_comparison_and_expr
+//   : usebase_comparison_atom ( 'and' usebase_comparison_atom )*
+//   ;
+
+// usebase_comparison_atom
+//   : usebase_comparison_part
+//   | '(' usebase_comparison_expr ')'
+//   ;
+
+// usebase_comparison_part
+//   : comparand=anybase_identifier usebase_comparator value=usebase_value
+//   ;
+
 usebase_assignment 
   :   variable=anybase_identifier usebase_assignop usebase_value 
   ;

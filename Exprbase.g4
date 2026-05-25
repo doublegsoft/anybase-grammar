@@ -34,7 +34,7 @@ exprbase_calc_expr
   :   left=exprbase_calc_expr operator=('*'|'/') right=exprbase_calc_expr
   |   left=exprbase_calc_expr operator=('+'|'-') right=exprbase_calc_expr 
   |   exprbase_calc_value                                             
-  |   '(' exprbase_calc_expr ')'
+  |   paren='(' exprbase_calc_expr ')'
   ;  
 
 exprbase_calc_value
@@ -46,7 +46,7 @@ exprbase_cmp_expr
   ;
 
 exprbase_cmp
-  :   '(' exprbase_cmp ')'
+  :   paren='(' exprbase_cmp ')'
   |   comparand=anybase_identifier exprbase_comparator value=anybase_value 
   |   exprbase_cmp and='and' exprbase_cmp                                     
   |   exprbase_cmp or='or' exprbase_cmp                                      

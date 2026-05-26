@@ -1,6 +1,6 @@
 grammar Usebase;     
 
-import Anybase, Typebase;
+import Anybase, Typebase, Exprbase;
 
 
 USEBASE_SYMBOL_START:               '|';
@@ -16,21 +16,21 @@ USEBASE_SYMBOL_LOOP:                '*|';
 USEBASE_SYMBOL_RETURN:              '.|';
 USEBASE_SYMBOL_EMIT:                '~|';
 
-USEBASE_SYMBOL_GT:                  '>';
-USEBASE_SYMBOL_FGT:                 '>>';
-USEBASE_SYMBOL_LT:                  '<';
-USEBASE_SYMBOL_FLT:                 '<<';
-USEBASE_SYMBOL_NGT:                 '<=';
-USEBASE_SYMBOL_NLT:                 '>=';
-USEBASE_SYMBOL_EQ:                  '==';
-USEBASE_SYMBOL_NEQ:                 '!=';
-USEBASE_SYMBOL_AQ:                  '~='; // Approximately Equal
+// USEBASE_SYMBOL_GT:                  '>';
+// USEBASE_SYMBOL_FGT:                 '>>';
+// USEBASE_SYMBOL_LT:                  '<';
+// USEBASE_SYMBOL_FLT:                 '<<';
+// USEBASE_SYMBOL_NGT:                 '<=';
+// USEBASE_SYMBOL_NLT:                 '>=';
+// USEBASE_SYMBOL_EQ:                  '==';
+// USEBASE_SYMBOL_NEQ:                 '!=';
+// USEBASE_SYMBOL_AQ:                  '~='; // Approximately Equal
 
-USEBASE_SYMBOL_ADD_ASSIGN:          '+=';
-USEBASE_SYMBOL_SUB_ASSIGN:          '-=';
-USEBASE_SYMBOL_MUL_ASSIGN:          '*=';
-USEBASE_SYMBOL_DIV_ASSIGN:          '/=';
-USEBASE_SYMBOL_NOP_ASSIGN:          '=';
+// USEBASE_SYMBOL_ADD_ASSIGN:          '+=';
+// USEBASE_SYMBOL_SUB_ASSIGN:          '-=';
+// USEBASE_SYMBOL_MUL_ASSIGN:          '*=';
+// USEBASE_SYMBOL_DIV_ASSIGN:          '/=';
+// USEBASE_SYMBOL_NOP_ASSIGN:          '=';
 
 USEBASE_SYMBOL_HASH:                '#';
 
@@ -65,25 +65,25 @@ usebase_operator
   :   USEBASE_SYMBOL_START usebase_operator_part+
   ;  
 
-usebase_comparator
-  :   USEBASE_SYMBOL_GT
-  |   USEBASE_SYMBOL_LT
-  |   USEBASE_SYMBOL_FGT
-  |   USEBASE_SYMBOL_FLT
-  |   USEBASE_SYMBOL_NGT
-  |   USEBASE_SYMBOL_NLT
-  |   USEBASE_SYMBOL_EQ
-  |   USEBASE_SYMBOL_NEQ
-  |   USEBASE_SYMBOL_AQ
-  ;
+// usebase_comparator
+//   :   USEBASE_SYMBOL_GT
+//   |   USEBASE_SYMBOL_LT
+//   |   USEBASE_SYMBOL_FGT
+//   |   USEBASE_SYMBOL_FLT
+//   |   USEBASE_SYMBOL_NGT
+//   |   USEBASE_SYMBOL_NLT
+//   |   USEBASE_SYMBOL_EQ
+//   |   USEBASE_SYMBOL_NEQ
+//   |   USEBASE_SYMBOL_AQ
+//   ;
 
-usebase_assignop
-  :   USEBASE_SYMBOL_ADD_ASSIGN
-  |   USEBASE_SYMBOL_SUB_ASSIGN
-  |   USEBASE_SYMBOL_MUL_ASSIGN
-  |   USEBASE_SYMBOL_DIV_ASSIGN
-  |   USEBASE_SYMBOL_NOP_ASSIGN
-  ;  
+// usebase_assignop
+//   :   USEBASE_SYMBOL_ADD_ASSIGN
+//   |   USEBASE_SYMBOL_SUB_ASSIGN
+//   |   USEBASE_SYMBOL_MUL_ASSIGN
+//   |   USEBASE_SYMBOL_DIV_ASSIGN
+//   |   USEBASE_SYMBOL_NOP_ASSIGN
+//   ;  
 
 usebase_expression
   :   usebase_invoke
@@ -101,42 +101,13 @@ usebase_statement
   :   usebase_operator usebase_expression usebase_remote?
   ;
 
-usebase_comparison_part
-  :   comparand=anybase_identifier usebase_comparator value=usebase_value
-  ;  
-
-usebase_comparison_conj
-  :   'and'
-  |   'or'
-  ;  
-
 usebase_comparison
-  :   usebase_comparison_part (usebase_comparison_conj usebase_comparison_part)*  (otherwise='!' msg=anybase_string)?
+  :   exprbase_cmp_expr  (otherwise='!' msg=anybase_string)?
   ;  
 
-// usebase_comparison
-//   : usebase_comparison_expr (otherwise='!' msg=anybase_string)?
-//   ;
-
-// usebase_comparison_expr
-//   : usebase_comparison_and_expr ( 'or' usebase_comparison_and_expr )*
-//   ;
-
-// usebase_comparison_and_expr
-//   : usebase_comparison_atom ( 'and' usebase_comparison_atom )*
-//   ;
-
-// usebase_comparison_atom
-//   : usebase_comparison_part
-//   | '(' usebase_comparison_expr ')'
-//   ;
-
-// usebase_comparison_part
-//   : comparand=anybase_identifier usebase_comparator value=usebase_value
-//   ;
 
 usebase_assignment 
-  :   variable=anybase_identifier usebase_assignop usebase_value 
+  :   variable=anybase_identifier exprbase_assignop usebase_value 
   ;
 
 usebase_validation
@@ -144,7 +115,7 @@ usebase_validation
   ;  
 
 usebase_argument
-  :   anybase_identifier ('as' attr=anybase_id)? (('=' | usebase_comparator) value=anybase_value)? usebase_validation?
+  :   anybase_identifier ('as' attr=anybase_id)? (('=' | exprbase_comparator) value=anybase_value)? usebase_validation?
   |   usebase_aggregate
   |   usebase_sysobj
   |   anybase_value
@@ -183,12 +154,12 @@ usebase_value
   :   anybase_string
   |   anybase_value
   |   anybase_identifier
+  |   exprbase_calc_expr  
   |   usebase_aggregate
   |   usebase_graph
   |   usebase_invoke
   |   usebase_sysobj
   |   usebase_calculate
-  |   usebase_calc_expr
   ;  
 
 usebase_conjunction
@@ -253,7 +224,7 @@ usebase_conditions
   ;  
 
 usebase_calculate
-  :   '%' ((name=anybase_id usebase_array) | usebase_calc_expr) ('(' groups=usebase_arguments ')')? '%'
+  :   '%' ((name=anybase_id usebase_array) | exprbase_calc_expr) ('(' groups=usebase_arguments ')')? '%'
   ;  
 
 usebase_calc_expr

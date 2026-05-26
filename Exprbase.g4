@@ -30,6 +30,14 @@ exprbase_comparator
   |   EXPRBASE_SYMBOL_AQ
   ;
 
+exprbase_assignop
+  :   EXPRBASE_SYMBOL_ADD_ASSIGN
+  |   EXPRBASE_SYMBOL_SUB_ASSIGN
+  |   EXPRBASE_SYMBOL_MUL_ASSIGN
+  |   EXPRBASE_SYMBOL_DIV_ASSIGN
+  |   EXPRBASE_SYMBOL_NOP_ASSIGN
+  ;    
+
 exprbase_calc_expr
   :   left=exprbase_calc_expr operator=('*'|'/') right=exprbase_calc_expr
   |   left=exprbase_calc_expr operator=('+'|'-') right=exprbase_calc_expr 
@@ -42,12 +50,8 @@ exprbase_calc_value
   ;
 
 exprbase_cmp_expr
-  :   exprbase_cmp (otherwise='!' msg=anybase_string)?
-  ;
-
-exprbase_cmp
-  :   paren='(' exprbase_cmp ')'
+  :   paren='(' exprbase_cmp_expr ')'
   |   comparand=anybase_identifier exprbase_comparator value=anybase_value 
-  |   exprbase_cmp and='and' exprbase_cmp                                     
-  |   exprbase_cmp or='or' exprbase_cmp                                      
+  |   exprbase_cmp_expr and='and' exprbase_cmp_expr                                     
+  |   exprbase_cmp_expr or='or' exprbase_cmp_expr                                      
   ;

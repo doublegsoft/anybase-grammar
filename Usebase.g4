@@ -65,26 +65,6 @@ usebase_operator
   :   USEBASE_SYMBOL_START usebase_operator_part+
   ;  
 
-// usebase_comparator
-//   :   USEBASE_SYMBOL_GT
-//   |   USEBASE_SYMBOL_LT
-//   |   USEBASE_SYMBOL_FGT
-//   |   USEBASE_SYMBOL_FLT
-//   |   USEBASE_SYMBOL_NGT
-//   |   USEBASE_SYMBOL_NLT
-//   |   USEBASE_SYMBOL_EQ
-//   |   USEBASE_SYMBOL_NEQ
-//   |   USEBASE_SYMBOL_AQ
-//   ;
-
-// usebase_assignop
-//   :   USEBASE_SYMBOL_ADD_ASSIGN
-//   |   USEBASE_SYMBOL_SUB_ASSIGN
-//   |   USEBASE_SYMBOL_MUL_ASSIGN
-//   |   USEBASE_SYMBOL_DIV_ASSIGN
-//   |   USEBASE_SYMBOL_NOP_ASSIGN
-//   ;  
-
 usebase_expression
   :   usebase_invoke
   |   usebase_object

@@ -207,14 +207,3 @@ usebase_calculate
   :   '%' ((name=anybase_id usebase_array) | exprbase_calc_expr) ('(' groups=usebase_arguments ')')? '%'
   ;  
 
-usebase_calc_expr
-  :   left=usebase_calc_expr operator=('*'|'/') right=usebase_calc_expr
-  |   left=usebase_calc_expr operator=('+'|'-') right=usebase_calc_expr 
-  |   usebase_calc_value                                             
-  |   '(' usebase_calc_expr ')'
-  ;  
-
-usebase_calc_value
-  :   usebase_object 
-  |   anybase_value
-  ;  

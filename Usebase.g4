@@ -206,4 +206,3 @@ usebase_conditions
 usebase_calculate
   :   '%' ((name=anybase_id usebase_array) | exprbase_calc_expr) ('(' groups=usebase_arguments ')')? '%'
   ;  
-

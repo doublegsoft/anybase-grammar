@@ -193,6 +193,7 @@ ANYBASE_ALPHANUM
 
 anybase_key
   :   ANYBASE_ALPHANUM
+  |   anybase_symbol_any+
   |   anybase_id
   |   anybase_int
   ;  

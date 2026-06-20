@@ -86,6 +86,10 @@ typebase_string
   :   ANYBASE_KEYWORD_STRING ('(' (length=anybase_int | length_name=anybase_id) ')')?
   ;
 
+typebase_strings
+  :   'strings' ('('length=anybase_int ',' separator=ANYBASE_QUOTED_STRING? ')')?
+  ;  
+
 // number type
 typebase_number
   :   ANYBASE_KEYWORD_NUMBER ('(' precision=anybase_int (',' scale=anybase_int)?')')? unit=typebase_unit?
@@ -230,6 +234,7 @@ typebase_anytype
   :   ('&' reftype=anybase_id ('(' typebase_anybase_id (',' typebase_anybase_id)* ('?' filterkey=typebase_anybase_id '=' filterval=typebase_anybase_id)? ')')?
   |   typebase_id
   |   typebase_string
+  |   typebase_strings
   |   typebase_code
   |   typebase_name
   |   typebase_date

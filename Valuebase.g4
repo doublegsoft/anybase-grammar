@@ -99,7 +99,7 @@ valuebase_anyvalue
   ;  
 
 valuebase_url_param
-  :   param=anybase_id comparator=('=' | '!=' | '>=' | '<=' | '>' | '<' | '[]') valuebase_url_value
+  :   name=anybase_id comparator=('=' | '!=' | '>=' | '<=' | '>' | '<' | '[]') valuebase_url_value
   ;
 
 valuebase_url_value
@@ -108,5 +108,5 @@ valuebase_url_value
   ;
 
 valuebase_url
-  :   (scheme=anybase_id)? '://' obj=anybase_id ('?' valuebase_url_param ('&' valuebase_url_param)*)? 
+  :   (scheme=anybase_id '://')? obj=anybase_id ('?' valuebase_url_param ('&' valuebase_url_param)*)? 
   ;  

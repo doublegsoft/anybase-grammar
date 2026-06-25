@@ -75,6 +75,11 @@ valuebase_uri
   :   '/' ANYBASE_ID ('/' ANYBASE_ID)* ('.' ext=ANYBASE_ID)?
   ;
 
+// system internal value
+valuebase_system
+  :   '#' anybase_id
+  ;  
+
 valuebase_list_item
   :   valuebase_uri
   |   ANYBASE_ID
@@ -91,6 +96,17 @@ valuebase_anyvalue
   |   valuebase_bytes
   |   valuebase_position
   |   valuebase_list
+  ;  
+
+valuebase_url_param
+  :   param=anybase_id comparator=('=' | '!=' | '>=' | '<=' | '>' | '<' | '[]') valuebase_url_value
   ;
 
+valuebase_url_value
+  :   anybase_value
+  |   valuebase_system
+  ;
 
+valuebase_url
+  :   (scheme=anybase_id)? '://' obj=anybase_id ('?' valuebase_url_param ('&' valuebase_url_param)*)? 
+  ;  

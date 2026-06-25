@@ -206,17 +206,3 @@ usebase_conditions
 usebase_calculate
   :   '%' ((name=anybase_id usebase_array) | exprbase_calc_expr) ('(' groups=usebase_arguments ')')? '%'
   ;  
-
-usebase_url_param
-  :   param=anybase_id comparator=('=' | '!=' | '>=' | '<=' | '>' | '<' | '[]') usebase_url_value
-  ;
-
-usebase_url_value
-  :   anybase_value
-  |   usebase_sysobj
-  |   usebase_invoke
-  ;
-
-usebase_url
-  :   '@' obj=anybase_id ('?' usebase_url_param ('&' usebase_url_param)*)? 
-  ;  

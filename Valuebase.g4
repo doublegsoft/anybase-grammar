@@ -77,7 +77,7 @@ valuebase_uri
 
 // system internal value
 valuebase_system
-  :   '#' anybase_id
+  :   '#' anybase_identifier
   ;  
 
 valuebase_list_item

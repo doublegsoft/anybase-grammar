@@ -99,7 +99,8 @@ valuebase_anyvalue
   ;  
 
 valuebase_url_param
-  :   name=anybase_id comparator=('=' | '!=' | '>=' | '<=' | '>' | '<' | '[]') valuebase_url_value
+  :   name=anybase_id comparator=('=' | '!=' | '>=' | '<=' | '>' | '<' ) valuebase_url_value
+  |   '{' object=anybase_id '}'
   ;
 
 valuebase_url_value

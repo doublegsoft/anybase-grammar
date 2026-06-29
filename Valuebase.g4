@@ -96,7 +96,7 @@ valuebase_anyvalue
   |   valuebase_bytes
   |   valuebase_position
   |   valuebase_list
-  ;  
+  ;
 
 valuebase_url_param
   :   name=anybase_id (comparator=('=' | '!=' | '>=' | '<=' | '>' | '<' ) valuebase_url_value)?
@@ -111,3 +111,23 @@ valuebase_url_value
 valuebase_url
   :   (scheme=anybase_id '://')? obj=anybase_id ('?' valuebase_url_param ('&' valuebase_url_param)*)? 
   ;  
+
+valuebase_action_type
+  :   '@'
+  |   '$'
+  |   '^'
+  |   '#'
+  |   '%'
+  ;
+
+valuebase_action_path
+  :   anybase_id ('/' anybase_id)*
+  ;
+
+valuebase_action_resource
+  :   resource=anybase_id '.' method=anybase_id
+  ;
+
+valuebase_action
+  :   valuebase_action_type (path=valuebase_action_path | res=valuebase_action_resource)
+  ;

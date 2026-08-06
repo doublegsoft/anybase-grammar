@@ -74,7 +74,7 @@ usebase_expression
   |   usebase_assignment
   |   item=anybase_id 'in' array=anybase_id
   |   var=anybase_identifier
-  |   anybase_identifier (',' anybase_identifier)+
+  |   anybase_identifier ('+' anybase_identifier)+
   ; 
 
 usebase_statement

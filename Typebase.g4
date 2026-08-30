@@ -192,7 +192,7 @@ typebase_password
   ;
   
 typebase_byte
-  :   ANYBASE_KEYWORD_BYTE ('(' length=anybase_int ')')?
+  :   ANYBASE_KEYWORD_BYTE ('(' (length=anybase_int | length_name=anybase_id) ')')?
   ;
 
 typebase_bit
@@ -271,5 +271,5 @@ typebase_anytype
   |   typebase_uuid
   |   typebase_state
   |   typebase_bool
-  |   typebase_any)? (array='[]' matrix='[]'?)?
+  |   typebase_any)? ((array='[' (length=anybase_int | length_name=anybase_id)? ']')? (matrix='[' (length1=anybase_int | length_name1=anybase_id)? ']')?)?
   ;

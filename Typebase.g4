@@ -230,8 +230,18 @@ typebase_any
   :   ANYBASE_KEYWORD_ANY
   ;
 
+typebase_refobj
+  :   '&' reftype=anybase_id ('(' typebase_anybase_id (',' typebase_anybase_id)* ('?' filterkey=typebase_anybase_id '=' filterval=typebase_anybase_id)? ')')?
+  ;
+
+typebase_aggobj
+  :   op=('max' | 'min' | 'sum' | 'avg' | 'count' | 'prev' | 'next') '%' reftype=anybase_id ('(' typebase_anybase_id (',' typebase_anybase_id)* ')')?
+  ;
+  
 typebase_anytype
-  :   ('&' reftype=anybase_id ('(' typebase_anybase_id (',' typebase_anybase_id)* ('?' filterkey=typebase_anybase_id '=' filterval=typebase_anybase_id)? ')')?
+  :   (
+      typebase_refobj
+  |   typebase_aggobj
   |   typebase_id
   |   typebase_string
   |   typebase_strings

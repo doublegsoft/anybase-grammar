@@ -129,5 +129,6 @@ valuebase_action_resource
   ;
 
 valuebase_action
-  :   valuebase_action_type ((path=valuebase_action_path ('?' valuebase_url_param ('&' valuebase_url_param)*)? ) | res=valuebase_action_resource)
+  :   (valuebase_action_type path=valuebase_action_path ('?' valuebase_url_param ('&' valuebase_url_param)*)? )
+  |   (valuebase_action_type? res=valuebase_action_resource)
   ;

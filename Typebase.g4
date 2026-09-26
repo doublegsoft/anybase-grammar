@@ -72,6 +72,10 @@ typebase_range_value
 typebase_enum
   :   TYPEBASE_ENUM '[' typebase_keytext (',' typebase_keytext)* ']'
   ;
+
+typebase_enum_ref
+  :   TYPEBASE_ENUM '[' object=anybase_id '(' value=anybase_id ',' text=anybase_id ')' ']'
+  ;
     
 typebase_state
   :   ANYBASE_KEYWORD_STATE
@@ -262,6 +266,7 @@ typebase_anytype
   |   typebase_byte
   |   typebase_bit
   |   typebase_enum
+  |   typebase_enum_ref
   |   typebase_text
   |   typebase_url
   |   typebase_password

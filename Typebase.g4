@@ -74,7 +74,7 @@ typebase_enum
   ;
 
 typebase_enum_ref
-  :   TYPEBASE_ENUM '[' object=anybase_id '(' value=anybase_id ',' text=anybase_id ')' ']'
+  :   TYPEBASE_ENUM '[' object=anybase_id '(' value=anybase_id ',' text=anybase_id (',' parent=anybase_id)? ')' ']'
   ;
     
 typebase_state

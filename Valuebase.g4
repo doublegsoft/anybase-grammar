@@ -118,6 +118,7 @@ valuebase_action_type
   |   '^'
   |   '#'
   |   '%'
+  |   '/'
   ;
 
 valuebase_action_path

@@ -131,9 +131,7 @@ usebase_data
   ;
 
 usebase_value
-  :   anybase_identifier
-  |   anybase_string
-  |   anybase_value
+  :   anybase_value
   |   exprbase_calc_expr  
   |   usebase_aggregate
   |   usebase_graph

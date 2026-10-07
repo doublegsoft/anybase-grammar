@@ -185,6 +185,17 @@ anybase_keywords
   |   ANYBASE_CODE_MINUTE
   |   ANYBASE_CODE_SECOND
   |   ANYBASE_TYPE_SCHEME
+  |   'prev'
+  |   'next'
+  |   'first'
+  |   'last'
+  |   'count'
+  |   'min'
+  |   'max'
+  |   'sum'
+  |   'avg'
+  |   'mean'
+  |   'median'
   ;
 
 ANYBASE_ALPHANUM

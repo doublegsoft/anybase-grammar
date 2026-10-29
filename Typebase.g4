@@ -91,7 +91,7 @@ typebase_string
   ;
 
 typebase_strings
-  :   'strings' ('('length=anybase_int ',' separator=ANYBASE_QUOTED_STRING? ')')?
+  :   'strings' ('('length=anybase_int (',' separator=ANYBASE_QUOTED_STRING)? ')')?
   ;  
 
 // number type

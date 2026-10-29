@@ -92,6 +92,10 @@ typebase_string
 
 typebase_strings
   :   'strings' ('('length=anybase_int (',' separator=ANYBASE_QUOTED_STRING)? ')')?
+  ;
+
+typebase_json
+  :   '{' name=anybase_id '}'
   ;  
 
 // number type
@@ -249,6 +253,7 @@ typebase_anytype
   |   typebase_id
   |   typebase_string
   |   typebase_strings
+  |   typebase_json
   |   typebase_code
   |   typebase_name
   |   typebase_date

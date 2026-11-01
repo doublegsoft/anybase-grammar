@@ -14,6 +14,8 @@ USEBASE_SYMBOL_CALL:                '@|'; // UNUSED
 USEBASE_SYMBOL_CASE:                '?|';
 USEBASE_SYMBOL_LOOP:                '*|';
 USEBASE_SYMBOL_RETURN:              '.|';
+USEBASE_SYMBOL_BREAK:               '/|';
+USEBASE_SYMBOL_CONTINUE:            '>|';
 USEBASE_SYMBOL_EMIT:                '~|';
 
 // USEBASE_SYMBOL_GT:                  '>';
@@ -58,6 +60,8 @@ usebase_operator_part
   |   USEBASE_SYMBOL_CASE
   |   USEBASE_SYMBOL_LOOP
   |   USEBASE_SYMBOL_RETURN
+  |   USEBASE_SYMBOL_BREAK
+  |   USEBASE_SYMBOL_CONTINUE
   |   USEBASE_SYMBOL_EMIT
   ;
 

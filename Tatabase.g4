@@ -74,7 +74,8 @@ tatabase_cases
   ;  
 
 tatabase_case
-  : '[' code=ANYBASE_ID ']' descr=anybase_string '{'
+  : '[' code=ANYBASE_ID ']' label=anybase_string '{'
+    anybase_string*
     tatabase_case_prerequisite*
     tatabase_case_input
     tatabase_case_output+

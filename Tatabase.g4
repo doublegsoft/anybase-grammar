@@ -118,7 +118,7 @@ tatabase_case_attr_set
   ;
 
 tatabase_case_attrs_set
-  : tatabase_case_attr_set (',' tatabase_case_attr_set)*
+  : tatabase_case_attr_set (',' tatabase_case_attr_set)* (',')?
   ;
 
 tatabase_case_obj_assert
@@ -130,5 +130,5 @@ tatabase_case_attr_assert
   ;
 
 tatabase_case_attrs_assert
-  : tatabase_case_attr_assert (',' tatabase_case_attr_assert)*
+  : tatabase_case_attr_assert (',' tatabase_case_attr_assert)* (',')?
   ;

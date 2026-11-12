@@ -7,7 +7,6 @@ tatabase_value
   | str=anybase_string
   | date=anybase_date
   | duration=tatabase_value_duration
-  | val=anybase_value
   | var=tatabase_case_variable
   ;
 

@@ -68,12 +68,20 @@ tatabase_model
   : obj=tatabase_object+
   ;
 
+tatabase_label
+  : '@' name=anybase_id
+  ;
+
+tatabase_labels
+  : tatabase_label*
+  ;  
+
 tatabase_cases
   : tatabase_case+
   ;  
 
 tatabase_case
-  : '[' code=ANYBASE_ID ']' label=anybase_string '{'
+  : tatabase_labels? '[' code=ANYBASE_ID ']' ('#' seq=anybase_int)? label=anybase_string '{'
     anybase_string*
     tatabase_case_prerequisite*
     tatabase_case_input

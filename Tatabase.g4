@@ -86,7 +86,7 @@ tatabase_case_assign
   ;
 
 tatabase_case_variable
-  : '$' anybase_identifier
+  : anybase_identifier
   ;
 
 tatabase_case_prerequisite
@@ -114,7 +114,7 @@ tatabase_case_attrs_set
   ;
 
 tatabase_case_obj_assert
-  : '{' name=anybase_id ':' tatabase_case_attrs_assert '}' ('#' '(' anybase_id '=' tatabase_value ')')?
+  : '{' name=anybase_id ':' tatabase_case_attrs_assert '}' ('#' '(' attr=anybase_id '=' tatabase_value ')')?
   ;
 
 tatabase_case_attr_assert

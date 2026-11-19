@@ -98,7 +98,7 @@ tatabase_case_variable
   ;
 
 tatabase_case_prerequisite
-  : '+' tatabase_case_obj_set tatabase_case_assign?
+  : '+' (tatabase_case_obj_set tatabase_case_assign? | sqlpath=anybase_string)
   ;
 
 tatabase_case_input

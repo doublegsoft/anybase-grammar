@@ -115,7 +115,7 @@ valuebase_url
 valuebase_action_type
   :   '@'               // 页面引用
   |   '$'               // 部件引用
-  |   '^'               // 备用
+  |   '^'               // SHEET引用
   |   '#'               // 对话框调用
   |   '%'               // 抽屉调用
   |   '/'               // API调用

@@ -95,7 +95,7 @@ typebase_strings
   ;
 
 typebase_path
-  :   'path' ('(' obj=anybase_id (',' separator=ANYBASE_QUOTED_STRING)? ')')?
+  :   'path' ('(' refobj=typebase_refobj (',' length=anybase_int)? (',' separator=ANYBASE_QUOTED_STRING)? ')')?
   ;
 
 typebase_json

@@ -94,6 +94,10 @@ typebase_strings
   :   'strings' ('('length=anybase_int (',' separator=ANYBASE_QUOTED_STRING)? ')')?
   ;
 
+typebase_path
+  :   'path' ('('obj=anybase_id ')')?
+  ;
+
 typebase_json
   :   '{' name=anybase_id '}'
   ;  
@@ -253,6 +257,7 @@ typebase_anytype
   |   typebase_id
   |   typebase_string
   |   typebase_strings
+  |   typebase_path
   |   typebase_json
   |   typebase_code
   |   typebase_name

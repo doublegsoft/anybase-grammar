@@ -119,6 +119,7 @@ ANYBASE_KEYWORD_DATETIME:         'datetime';
 ANYBASE_KEYWORD_DURATION:         'duration';
 ANYBASE_KEYWORD_UNIT:             'unit';
 ANYBASE_KEYWORD_STATE:            'state';
+ANYBASE_KEYWORD_PATH:             'path';
 
 ANYBASE_ID:                       ANYBASE_NAMEFIRSTCHAR ANYBASE_NAMECHAR*;
 
@@ -185,6 +186,7 @@ anybase_keywords
   |   ANYBASE_CODE_MINUTE
   |   ANYBASE_CODE_SECOND
   |   ANYBASE_TYPE_SCHEME
+  |   ANYBASE_KEYWORD_PATH
   |   'prev'
   |   'next'
   |   'first'
